@@ -1,0 +1,14 @@
+# ignore build artifacts
+dist
+
+# ignore dependencies
+node_modules
+yarn.lock
+
+# ignore certain config files
+package.json
+tsconfig.json
+
+# ignore other generated code
+coverage
+src/__snapshots__

@@ -1,17 +1,21 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import axios from "axios";
+import axios from 'axios';
 
-const CommentCreate = ({ postId }) => {
-  const [content, setContent] = useState("");
+type Comment = {
+  postId: string;
+};
 
-  const handleSubmit = async (e) => {
+const CommentCreate = ({ postId }: Comment) => {
+  const [content, setContent] = useState('');
+
+  const handleSubmit = async (e: React.SyntheticEvent<EventTarget>) => {
     e.preventDefault();
     await axios.post(`http://localhost:4445/posts/${postId}/comments`, {
       content,
     });
 
-    setContent("");
+    setContent('');
   };
 
   return (

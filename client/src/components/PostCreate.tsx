@@ -1,17 +1,17 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import axios from "axios";
+import axios from 'axios';
 
 const PostCreate = () => {
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState('');
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.SyntheticEvent<EventTarget>) => {
     e.preventDefault();
-    await axios.post("http://localhost:4444/posts", {
+    await axios.post('http://localhost:4444/posts', {
       title,
     });
 
-    setTitle("");
+    setTitle('');
   };
 
   return (

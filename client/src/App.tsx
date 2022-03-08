@@ -1,7 +1,8 @@
-import PostCreate from "./components/PostCreate";
-import PostList from "./components/PostList";
+import React from 'react';
+import PostCreate from './components/PostCreate';
+import PostList from './components/PostList';
 
-function App() {
+const App = () => {
   return (
     <div className="container">
       <h3>Create Post</h3>
@@ -10,6 +11,6 @@ function App() {
       <PostList />
     </div>
   );
-}
+};
 
 export default App;
