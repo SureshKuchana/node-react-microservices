@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 import axios from "axios";
-import PostList from "./PostList";
 
 const PostCreate = () => {
   const [title, setTitle] = useState("");
@@ -16,7 +15,7 @@ const PostCreate = () => {
   };
 
   return (
-    <div>
+    <>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Title</label>
@@ -29,9 +28,8 @@ const PostCreate = () => {
         <button className="mt-2 btn btn-primary">Submit</button>
         <hr />
         <h3>Posts</h3>
-        <PostList />
       </form>
-    </div>
+    </>
   );
 };
 

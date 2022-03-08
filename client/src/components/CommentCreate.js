@@ -1,38 +1,31 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import axios from "axios";
 
-const CommentCreate = () => {
-  const [posts, setPosts] = useState({});
+const CommentCreate = ({ postId }) => {
+  const [content, setContent] = useState("");
 
-  const fetchPosts = async () => {
-    const res = await axios.get("http://localhost:4444/posts");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await axios.post(`http://localhost:4445/posts/${postId}/comments`, {
+      content,
+    });
 
-    setPosts(res.data);
+    setContent("");
   };
 
-  useEffect(() => {
-    fetchPosts();
-  }, []);
-
-  const renderedPosts = Object.values(posts).map((post) => {
-    return (
-      <div
-        className="card"
-        style={{ width: "30%", marginBottom: "20px" }}
-        key={post.id}
-      >
-        <div className="card-body">
-          <h3>{post.title}</h3>
-        </div>
-      </div>
-    );
-  });
-
   return (
-    <div className="d-flex flex-row flex-wrap justify-content-between">
-      {renderedPosts}
-    </div>
+    <form onSubmit={handleSubmit}>
+      <div className="form-group">
+        <label>New Comment</label>
+        <input
+          value={content}
+          className="form-control"
+          onChange={(e) => setContent(e.target.value)}
+        />
+      </div>
+      <button className="btn btn-primary">Submit</button>
+    </form>
   );
 };
 
