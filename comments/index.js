@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 
 // creates express application
 const app = express();
@@ -10,6 +11,8 @@ app.use(express.json());
 // built-in middleware function in express.
 // it parses incoming requests with urlencoded payloads
 app.use(express.urlencoded({ extended: true }));
+// cors
+app.use(cors());
 
 // port
 const PORT = process.env.PORT || 4444;

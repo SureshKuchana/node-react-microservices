@@ -6,9 +6,9 @@ var router = express.Router();
 // posts data
 const posts = {};
 // GET request for the posts data
-router.get("/", (req, res) => {
-  //
-  console.log(" req ", req);
+router.get("/posts", (req, res) => {
+  // get the posts
+  res.send(posts);
 });
 
 // POST request for the posts data
